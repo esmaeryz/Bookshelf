@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Nav,
   NavLink,
@@ -8,14 +8,18 @@ import {
   NavBtnLink,
 } from "./NavbarElements";
 
-const Navbar = () => {
+const Navbar = ({ setShowSideBar }) => {
   return (
     <>
       <Nav>
         <NavLink to="/">
           <h1>Bookshelf</h1>
         </NavLink>
-        <Bars />
+        <Bars
+          onClick={() => {
+            setShowSideBar(true);
+          }}
+        />
         <NavMenu>
           <NavLink to="/home" activeStyle>
             Home
@@ -31,7 +35,7 @@ const Navbar = () => {
           </NavLink>
         </NavMenu>
         <NavBtn>
-          <NavBtnLink to="/signin">Sign In</NavBtnLink>
+          <NavBtnLink to="/sign-in">Sign In</NavBtnLink>
         </NavBtn>
       </Nav>
     </>
